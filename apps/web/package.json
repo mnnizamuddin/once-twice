@@ -1,0 +1,11 @@
+{
+  "name": "@once-twice/web",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Front end of once-twice. Framework not chosen yet.",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "@once-twice/shared": "*"
+  }
+}
