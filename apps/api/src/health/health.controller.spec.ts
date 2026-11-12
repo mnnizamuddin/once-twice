@@ -1,10 +1,10 @@
 import { Test } from '@nestjs/testing';
-import { DATABASE } from '../database/database.module';
-import { HealthController } from './health.controller';
+import { DATABASE } from '../database/database.module.js';
+import { HealthController } from './health.controller.js';
 
 describe('HealthController', () => {
   it('answers ok when the database responds', async () => {
-    const database = { execute: jest.fn().mockResolvedValue({ rows: [] }) };
+    const database = { execute: vi.fn().mockResolvedValue({ rows: [] }) };
     const moduleRef = await Test.createTestingModule({
       controllers: [HealthController],
       providers: [{ provide: DATABASE, useValue: database }],
@@ -21,7 +21,7 @@ describe('HealthController', () => {
 
   it('fails when the database does not respond', async () => {
     const database = {
-      execute: jest.fn().mockRejectedValue(new Error('connection refused')),
+      execute: vi.fn().mockRejectedValue(new Error('connection refused')),
     };
     const moduleRef = await Test.createTestingModule({
       controllers: [HealthController],

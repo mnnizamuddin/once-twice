@@ -1,6 +1,6 @@
 import { Controller, Get, Inject } from '@nestjs/common';
 import { sql } from 'drizzle-orm';
-import { DATABASE, type Database } from '../database/database.module';
+import { DATABASE, type Database } from '../database/database.module.js';
 
 /** Answer of the health check. */
 export interface Health {
